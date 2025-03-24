@@ -26,3 +26,27 @@ board.jdbc.password=hr
 * Spring MVC에서 세션에 데이터를 저장하고 관리하는 데 사용하는 어노테이션입니다.
 * 이 어노테이션을 사용하면 특정 모델 속성을 HTTP 세션에 자동으로 저장할 수 있게 됩니다.
 
+## @ModelAttribute
+* Spring MVC에서 사용되는 어노테이션으로, 주로 요청 파라미터를 Java 객체로 바인딩하는 데 사용됩니다.
+* 주로 컨트롤러 메소드에서 입력 데이터를 처리할 때 사용됩니다. 
+* 이 어노테이션을 사용하면 HTTP 요청 파라미터를 자동으로 Java 객체의 필드에 매핑할 수 있습니다.
+### 주요 용도
+1. 요청 파라미터를 객체로 바인딩: @ModelAttribute는 요청에서 전달된 파라미터를 지정된 객체에 자동으로 매핑합니다.
+2. 모델 객체에 데이터를 추가: 컨트롤러 메소드에서 반환하는 데이터에 모델을 추가하거나, 뷰에서 사용할 데이터를 준비하는 데 사용됩니다.
+```java
+@RequestMapping("/getBoardList")
+public String getBoardList(@ModelAttribute("member") Member member, Model model, Board board) {
+  if(member.getId() == null) {
+			 return "redirect:login";
+		}
+		List<Board> boardList = boardService.getBoardList(board);
+		model.addAttribute("boardList", boardList);
+		return "getBoardList";
+}
+```
+
+## @ControllerAdvice
+* 모든 컨트롤러에서 발생하는 예외를 일괄적으로 처리
+  
+## @ExceptionHandler
+* 각 컨트롤러마다 발생하는 예외를 개별적으로 처리하는 것
