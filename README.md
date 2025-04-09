@@ -50,3 +50,25 @@ public String getBoardList(@ModelAttribute("member") Member member, Model model,
   
 ## @ExceptionHandler
 * 각 컨트롤러마다 발생하는 예외를 개별적으로 처리하는 것
+
+## 챕터 7 환경 셋팅
+* Spring Boot 3.4.4와 Spring Security 5.1.5는 호환성에 문제가 있을 수 있다
+  * 부트 2.7.17, jdk 1.8로 다운그레이드
+  * build path - java compiler 1.8로 변경
+  * <artifactId>spring-security-test</artifactId> 클릭 - 시큐리티 전부 5.1.5.RELEASE 로 버전 변경
+
+```java
+// pom.xml
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<!-- <version>3.4.4</version> -->
+		<version>2.7.17</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<properties>
+		<java.version>8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+    	<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+```
