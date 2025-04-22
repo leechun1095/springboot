@@ -72,3 +72,27 @@ public String getBoardList(@ModelAttribute("member") Member member, Model model,
     	<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 ```
+
+## @Component
+* 일반적인 컴포넌트를 빈으로 등록할 때 사용
+* 컴포넌트 스캔을 통해 빈으로 등록
+
+## @Service
+* 서비스 계층을 나타내는 특수화된 어노테이션 
+* @Component의 역할을 확장한 것입니다. 
+* 컴포넌트 스캔을 통해 빈으로 등록	
+	
+## @Repository
+* 데이터 접근 객체(DAO)를 나타내는 어노테이션 
+* @Component를 확장한 형태입니다. 
+* 주로 데이터베이스와 관련된 클래스를 빈으로 등록할 때 사용합니다.	
+	
+## @Controller 
+* Spring MVC에서 사용되는 컨트롤러를 나타내는 어노테이션
+* @Component를 확장한 형태
+* Spring MVC 웹 애플리케이션에서 컨트롤러 클래스를 빈으로 등록하는 데 사용됩니다.	
+	
+## @Configuration
+* 빈을 정의하는 설정 클래스를 나타내는 어노테이션
+* 이 어노테이션을 사용한 클래스는 애플리케이션의 설정 클래스로 간주되며, 
+* 이 클래스 내에서 @Bean 어노테이션을 사용하여 명시적으로 빈을 등록할 수 있습니다.
